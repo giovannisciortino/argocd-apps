@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: httpd
+  name: httpd-deployment
+spec:
+  clusterIP: 10.23.61.17
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: httpd
+  sessionAffinity: None
+  type: ClusterIP

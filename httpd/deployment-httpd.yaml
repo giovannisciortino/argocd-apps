@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+spec:
+  selector:
+    matchLabels:
+      app: httpd
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: image-registry.openshift-image-registry.svc:5000/openshift/httpd
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+          -
+            mountPath: "/var/www/html"
+            name: "var-www-html"
+      volumes:
+        -
+          name: "var-www-html"
+          persistentVolumeClaim:
+            claimName: "httpd-var-www-html"
