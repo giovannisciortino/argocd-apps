@@ -20,9 +20,9 @@ spec:
         volumeMounts:
           -
             mountPath: "/var/www/html"
-            name: "var_www_html"
+            name: "var-www-html"
       volumes:
         -
-          name: "var_www_html"
+          name: "var-www-html"
           persistentVolumeClaim:
             claimName: "httpd-var-www-html"
