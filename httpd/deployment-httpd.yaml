@@ -25,4 +25,4 @@ spec:
         -
           name: "var_www_html"
           persistentVolumeClaim:
-            claimName: "httpd_var_www_html"
+            claimName: "httpd-var-www-html"
