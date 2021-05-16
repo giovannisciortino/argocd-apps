@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app.kubernetes.io/instance: httpd
+  name: httpd-deployment
+spec:
+  host: httpd-deployment-gsciorti-httpd.apps.lab11.gpslab.club
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: httpd-deployment
+    weight: 100
+  wildcardPolicy: None
