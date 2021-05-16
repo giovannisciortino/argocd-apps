@@ -17,3 +17,12 @@ spec:
         image: image-registry.openshift-image-registry.svc:5000/openshift/httpd
         ports:
         - containerPort: 8080
+        volumeMounts:
+          -
+            mountPath: "/var/www/html"
+            name: "var_www_html"
+      volumes:
+        -
+          name: "var_www_html"
+          persistentVolumeClaim:
+            claimName: "httpd_var_www_html"
